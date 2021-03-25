@@ -1,0 +1,134 @@
+html {
+  background: url(https://i.pinimg.com/originals/b8/6b/c2/b86bc2d435a63ff3c3199a8db558def1.jpg)
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color:white;
+  background-color: transparent;
+}
+#search_bar {
+  position: relative;
+  /* left: 70%;
+    top: 8%; */
+  /* transform: translate(-50%, -50%); */
+  padding-top: 10%;
+  /* padding-bottom: 2%; */
+  /* padding-left: ; */
+  /* padding-right: 8%; */
+}
+
+.temperature {
+  padding-top: 10%;
+}
+/* #location{
+    height: 2%;
+} */
+#search{
+  height: 40px;
+}
+#addon1 {
+  position: relative;
+
+  padding: 1.7%;
+  /* align-content: center; */
+  background-color: white;
+  color: black;
+  height: 40px;
+}
+
+.container {
+  color: white;
+  font-weight: bold;
+  /* font-size-adjust: inherit; */
+}
+
+.temperature {
+  font-size: 3rem;
+}
+
+/* #day1,
+#temp1,
+#desc1,
+#day2,
+#temp2,
+#desc2,
+#day3,
+#temp3,
+#desc3,
+#day4,
+#temp4,
+#desc4,
+#day5,
+#temp5,
+#desc5,
+#day6,
+#temp6,
+#desc6,
+#day7,
+#temp7,
+#desc7,
+#day8,
+#temp8,
+#desc8 {
+    align-content: center;
+}
+
+#temp1{
+    text-align: center;
+} */
+/* 
+#temp1,#desc1 {
+    font-size: 1rem;
+} */
+/* .temperature, .location, .time, .feels {
+    padding-left: 8%;
+} */
+
+/* 
+#map{
+    background-color: black;
+} */
+
+
+#map{
+  height: 100%;
+  width: 100%;
+}
+
+
+@media (max-width: 767px) {
+
+  #map{
+    height: 40vh;
+    width: 100%;
+    margin-top: 5vh;
+  }
+
+  #above_forecast{
+    margin-top: 6vh;
+  }
+
+  #location{
+    margin-top: 3vh;
+  }
+  #time{
+    margin-top: 1vh;
+  }
+
+  #feels_like{
+    margin-top: 1vh;
+    margin-bottom: 5vh;
+  }
+
+  #mid_margin{
+    display: none;
+  }
+}

@@ -1,0 +1,44 @@
+
+ html {
+  background: url(https://i.pinimg.com/originals/b8/6b/c2/b86bc2d435a63ff3c3199a8db558def1.jpg)
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color:white;
+  background-color: transparent;
+}
+
+#search_bar_row{
+margin-left: 1vw;
+margin-right: 1vw;
+padding-top: 40vh;
+
+}
+
+#search_bar {
+  position: relative;
+  padding-top: 10%;
+}
+#search{
+  /* do not set heights in vh */
+  height: 40px;
+}
+#addon1 {
+  position: relative;
+
+  padding: 1.7%;
+  background-color: white;
+  color: black;
+
+    /* do not set heights in vh */
+
+  height: 40px;
+}

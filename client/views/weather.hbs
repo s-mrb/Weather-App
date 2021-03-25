@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather</title>
+          <link rel="shortcut icon" href="../imgs/weather_icon3.png" type="image/x-icon" style="background-color: transparent;">
+
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+
+
+        {{!-- 
+        Font Awesome
+ --}}
+
+        <script src="https://kit.fontawesome.com/d9f6d2145f.js" crossorigin="anonymous"></script>
+
+        {{!-- 
+                CSS
+ --}}
+        <link rel="stylesheet" type="text/css" href="../css/weather.css">
+    </head>
+
+<body>
+
+    <div class="container">
+        <div class="row mt-5"></div>
+        <div class="row mt-5"></div>
+
+        <div class="row no-gutters">
+            <div class="col-md-6 col-xm-12  order-md-last">
+                <div class="searchbar">
+                    <form class="form-group form-group-md" id="mainform">
+                        <div class="input-group" id="search_bar">
+                            <div class="input-group-addon" id="addon1">
+                                <i class="fas fa-search" id="icon1"></i>
+                            </div>
+                            <input class="form-control h-70" id="search" name="search" type="text" required="true"
+                                oninvalid="this.setCustomValidity('Enter Location or ?')"
+                                oninput="this.setCustomValidity('')" placeholder="Location or ?" />
+                            <input type="submit" style="height: 0px; width: 0px; border: none; padding: 0px;"
+                                hidefocus="true" " />
+                        </div>
+                    </form>
+                </div>
+        </div>
+        <div class=" col-md-6 col-xm-12 ">
+                            <h1 class=" temperature" id="maintemp">
+                            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather_icon" width="42"
+                                height="42" style="vertical-align:bottom">
+                            {{data.current.temp}}&#176C</h1>
+                        </div>
+                </div>
+
+                <div class="row no-gutters">
+                    <div class="col-md-6 col-xm-12">
+                        <div class="row  no-gutters">
+                            <h4 class="location" id="location">{{location}}</h4>
+                        </div>
+                        <div class="row no-gutters">
+                            <h4 class="time" id="time">{{time}}</h4>
+                        </div>
+                        <div class="row no-gutters">
+                            <h4 class="feels" id="feels_like">Feels like : {{data.current.feels_like}}&#176C</h4>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-xm-12">
+                        <div class="row d-none d-md-block mt-5 no-gutters">
+                        </div>
+                        <div class="row no-gutters">
+
+                            <div class="col">
+                                <h5 id="wind">Wind: {{data.current.wind_speed}}m/s </h5>&nbsp;
+                            </div>
+                            <div class="col">
+                                <h5 id="pressure">Pressure: {{data.current.pressure}}hPa &nbsp;</h5>
+                            </div>
+                            <div class="col">
+                                <h5 id="humidity">Humidity: {{data.current.humidity}}%</h5>
+                            </div>
+
+                        </div>
+                        <div class="row no-gutters">
+
+                            <div class="col">
+                                <h5 id="uv">UV: {{data.current.uvi}} &nbsp;</h5>
+                            </div>
+                            <div class="col">
+                                <h5 id="dewpoint">Dewpoint: {{data.current.dew_point}}&#176C &nbsp;</h5>
+                            </div>
+                            <div class="col">
+                                <h5 id="visibility">Visibility: {{data.current.visibility}}km</h5>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            
+                <div id="mid_margin">
+                    <div class="row mt-5">
+                    </div>
+
+                    <div class="row mt-5">
+                    </div>
+                    <div class="row mt-5">
+                    </div>
+
+                    <div class="row mt-5">
+                    </div>
+
+                </div>
+                <div class="row" id="above_forecast">
+                </div>
+
+                <div class="row no-gutters">
+                    <div class="col-md-8 col-sm-12">
+
+                        <div class="row h-20 m-2 no-gutters align-items-center">
+                            <div class="col-2" id="day1">{{day.[0]}}</div>
+                            <div class="col-3" id="temp1">{{temp_max.[0]}}-{{temp_min.[0]}}&#176C</div>
+                            <div class="col-3" id="des1"><img src={{icon.[0]}} alt="weather_icon" width="30" height="30"
+                                    align="top">{{desc.[1]}}</div>
+                            {{!-- heavy shower rain and drizzle --}}
+                        </div>
+
+                        <div class="row h-20 m-2 no-gutters align-items-center">
+                            <div class="col-2" id="day1">{{day.[1]}}</div>
+                            <div class="col-3" id="temp1">{{temp_max.[1]}}-{{temp_min.[1]}}&#176C</div>
+                            <div class="col-3" id="des1"><img src={{icon.[1]}} alt="weather_icon" width="30" height="30" ">{{desc.[1]}}</div>
+                        </div>
+
+                     <div class=" row h-20 m-2 no-gutters align-items-center">
+                                <div class="col-2" id="day1">{{day.[2]}}</div>
+                                <div class="col-3" id="temp1">{{temp_max.[2]}}-{{temp_min.[2]}}&#176C</div>
+                                <div class="col-3" id="des1"><img src={{icon.[2]}} alt="weather_icon" width="30"
+                                        height="30" ">{{desc.[2]}}</div>
+                        </div>
+
+                 <div class=" row h-20 m-2 no-gutters align-items-center">
+                                    <div class="col-2" id="day1">{{day.[3]}}</div>
+                                    <div class="col-3" id="temp1">{{temp_max.[3]}}-{{temp_min.[3]}}&#176C</div>
+                                    <div class="col-3" id="des1"><img src={{icon.[3]}} alt="weather_icon" width="30"
+                                            height="30" ">{{desc.[3]}}</div>
+                        </div>
+                
+                 <div class=" row h-20 m-2 no-gutters align-items-center">
+                                        <div class="col-2" id="day1">{{day.[4]}}</div>
+                                        <div class="col-3" id="temp1">{{temp_max.[4]}}-{{temp_min.[4]}}&#176C</div>
+                                        <div class="col-3" id="des1"><img src={{icon.[4]}} alt="weather_icon" width="30"
+                                                height="30" ">{{desc.[4]}}</div>
+                        </div>
+                <div class=" row h-20 m-2 no-gutters align-items-center">
+                                            <div class="col-2" id="day1">{{day.[5]}}</div>
+                                            <div class="col-3" id="temp1">{{temp_max.[5]}}-{{temp_min.[5]}}&#176C</div>
+                                            <div class="col-3" id="des1"><img src={{icon.[5]}} alt="weather_icon"
+                                                    width="30" height="30" ">{{desc.[5]}}</div>
+                        </div>
+
+                  <div class=" row h-20 m-2 no-gutters align-items-center">
+                                                <div class="col-2" id="day1">{{day.[6]}}</div>
+                                                <div class="col-3" id="temp1">{{temp_max.[6]}}-{{temp_min.[6]}}&#176C
+                                                </div>
+                                                <div class="col-3" id="des1"><img src={{icon.[6]}} alt="weather_icon"
+                                                        width="30" height="30" ">{{desc.[6]}}</div>
+                        </div>
+
+                     <div class=" row h-20 m-2 no-gutters align-items-right">
+                                                    <div class="col-2" id="day1">{{day.[7]}}</div>
+                                                    <div class="col-3" id="temp1">
+                                                        {{temp_max.[7]}}-{{temp_min.[7]}}&#176C</div>
+                                                    <div class="col-3" id="des1"><img src={{icon.[7]}}
+                                                            alt="weather_icon" width="30" height="30" ">{{desc.[7]}}</div>
+                        </div>
+        </div>
+        <div class=" col-md-4 col-sm-12">
+                                                        <div id="map">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+
+                                            </div>
+
+                                            {{!-- google maps --}}
+
+
+                                            <script src="../js/weather.js"></script>
+                                            <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+
+                                            <script>
+                                                var zoom = 10;
+                                                var latitide = {{ lat }};
+                                                var longitude = {{ lng }};
+
+
+                                                function initMap() {
+                                                    var location = { lat: latitide, lng: longitude };
+                                                    const map = new google.maps.Map(document.getElementById("map"), {
+                                                        zoom: zoom,
+                                                        center: location
+                                                    });
+                                                    const marker = new google.maps.Marker({
+                                                        position: location,
+                                                    });
+                                                }
+                                            </script>
+
+                                            {{!-- ????? FIND A WAY TO SHIFT BELOW SCRIPT IN JS file --}}
+                                            <div id="rendered_map">
+                                                <script defer
+                                    
+                                                    src="https://maps.googleapis.com/maps/api/js?key=YOURFFKEY&callback=initMap">
+                                                    </script>
+                                            </div>
+
+</body>
+
+</html>

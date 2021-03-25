@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather</title>
+          <link rel="shortcut icon" href="../imgs/weather_icon3.png" type="image/x-icon" style="background-color: transparent;">
+
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+
+
+        {{!-- 
+        Font Awesome
+ --}}
+
+        <script src="https://kit.fontawesome.com/d9f6d2145f.js" crossorigin="anonymous"></script>
+
+        {{!-- 
+                CSS
+ --}}
+        <link rel="stylesheet" type="text/css" href="../css/index.css">
+    </head>
+<body>
+    
+
+
+    <div class="container">
+        <div class="row justify-content-center" id="search_bar_row">
+            <div class="col-md-8 col-sm-8">
+                        <div id="searchbar">
+                    <form class="form-group form-group-md" id="mainform">
+                        <div class="input-group" id="search_bar">
+                            <div class="input-group-addon" id="addon1">
+                                <i class="fas fa-search" id="icon1"></i>
+                            </div>
+                            <input class="form-control h-70" id="search" name="search" type="text" required="true"
+                                oninvalid="this.setCustomValidity('Enter Location or ?')"
+                                oninput="this.setCustomValidity('')" placeholder="Location or ?" />
+                            <input type="submit" style="height: 0px; width: 0px; border: none; padding: 0px;"
+                                hidefocus="true" " />
+                                
+                        </div>
+                                <h3 class="text-center">weather-it</h3>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <script src="../js/index.js"></script>
+
+</body>
+</html>
